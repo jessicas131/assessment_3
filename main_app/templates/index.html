@@ -14,12 +14,22 @@
     {% if widgets|length == 0 %}
         <p>No Widgets Exist</p>
     {% else %}
-        <ul>
+        <table class="pure-table pure-table-striped">
+          <thead>
+            <tr><th>Description</th><th>Quantity</th><th>Delete</th></tr>
+          </thead>
+          <tbody>
             {% for widget in widgets %}
-                <li>{{ widget }}</li>
+            <tr>
+                <td>{{ widget.description }}</td>
+                <td>{{ widget.quantity }}</td>
+                <td><a href="#">X</a></td>
+              </tr>
             {% endfor %}
-        </ul>
+          </tbody>
+        </table>
     {% endif %}
     <hr>
+    <a href="{% url 'add_widget' %}">Add A Widget</a>
 </body>
 </html>
